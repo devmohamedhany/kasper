@@ -5,9 +5,9 @@
   --section-padding: 100px;
 }
 * {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;
@@ -17,6 +17,11 @@ body {
 }
 ul {
   list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
 }
 .container {
   padding: 0 15px;
@@ -54,5 +59,91 @@ ul {
 /*end global style*/
 
 /*Start header*/
+.header {
+  background-color: #ddd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.header .container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  height: 1px;
+  background-color: #a2a2a2;
+  width: calc(100% - 30px);
+}
+.header .container .logo {
+  flex-basis: 200px;
+}
+.header .container .logo img {
+  max-width: 100%;
+}
+.header .container .menu-bar {
+  display: none;
+  color: #fff;
+}
+.header .container .nav {
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+.header .container .nav ul {
+  display: flex;
+  column-gap: 10px;
+  justify-self: flex-end;
+  align-items: center;
+}
+.header .container .nav ul li a {
+  display: block;
+  padding: 40px 10px;
+  transition: 0.1s;
+  font-size: 14px;
+  position: relative;
+  z-index: 3;
+}
+.header .container .nav ul li a:hover {
+  color: var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+  padding: 39px 10px;
+}
+.header .container .nav ul li:first-child a {
+  color: var(--main-color);
+  padding: 39px 10px;
 
+  border-bottom: 1px solid var(--main-color);
+}
+.header .container .nav .icon {
+  position: relative;
+}
+.header .container .nav .icon::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 100%;
+  left: -15px;
+  width: 2px;
+  background-color: #fff;
+}
+@media (max-width: 767px) {
+  .header .container .nav ul {
+    display: none;
+  }
+  .header .container .nav .menu-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 40px 10px;
+  }
+  .header .container .nav .menu-bar i {
+    font-size: 18px;
+  }
+}
 /*End header*/
