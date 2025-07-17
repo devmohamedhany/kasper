@@ -60,11 +60,11 @@ a {
 
 /*Start header*/
 .header {
-  background-color: #ddd;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 5;
 }
 .header .container {
   display: flex;
@@ -108,19 +108,16 @@ a {
   transition: 0.1s;
   font-size: 14px;
   position: relative;
+  border-bottom: 1px solid transparent; /* Reserve space for border */
+
   z-index: 3;
 }
-.header .container .nav ul li a:hover {
-  color: var(--main-color);
-  border-bottom: 1px solid var(--main-color);
-  padding: 39px 10px;
-}
+.header .container .nav ul li a:hover,
 .header .container .nav ul li:first-child a {
   color: var(--main-color);
-  padding: 39px 10px;
-
   border-bottom: 1px solid var(--main-color);
 }
+
 .header .container .nav .icon {
   position: relative;
 }
@@ -147,3 +144,85 @@ a {
   }
 }
 /*End header*/
+
+/*Start hero section*/
+
+.hero {
+  background-image: url("../images/landing.jpg");
+  height: 100vh;
+  position: relative;
+}
+.hero .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 60%);
+}
+.hero .hero-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--transparent-color);
+  padding: 50px;
+  width: 50%;
+  color: #fff;
+  max-width: 500px;
+}
+.hero .hero-text h1 {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+.hero .hero-text p {
+  line-height: 1.9;
+}
+.hero i.left {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  font-size: 30px;
+  color: #fff;
+}
+.hero i.right {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  font-size: 30px;
+  color: #fff;
+}
+.hero .slider {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  column-gap: 18px;
+}
+.hero .slider li {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+.hero .slider li:nth-child(2) {
+  background-color: var(--main-color);
+  border: none;
+}
+@media (max-width: 767px) {
+  .hero i {
+    display: none;
+  }
+  .hero .hero-text {
+    width: 100%;
+    max-width: none;
+  }
+  .hero .hero-text h1 {
+    font-size: 18px;
+  }
+  .hero .hero-text p {
+    line-height: 1.6;
+    font-size: small;
+  }
+}
+/*End hero section*/
